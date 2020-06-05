@@ -14,7 +14,9 @@ export default function App(props) {
   return (
     <View style={{ flex: 1 }}>
       {initialLaunch ? (
-        <IntroScreen onPress={disableIntroScreen} />
+        <View style={{ flex: 1 }}>
+          <IntroScreen onPress={disableIntroScreen} />
+        </View>
       ) : (
         <View style={styles.container}>
           <AppNavigator />

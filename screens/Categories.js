@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
 import Constants from "expo-constants";
-import CategoryCard from "../components/categoryCard";
+import CategoryCard from "../components/CategoryCard";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -35,6 +35,7 @@ const Categories = ({ navigation }) => {
         data={categories}
         numColumns={2}
         columnWrapperStyle={styles.row}
+        keyExtractor={() => Math.random().toString()}
         renderItem={({ item }) => (
           <CategoryCard item={item} onPress={viewCategory} />
         )}

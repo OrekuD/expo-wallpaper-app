@@ -6,7 +6,7 @@ import ImageCard from "../components/ImageCard";
 const a = ["", "", "", "", ""];
 
 const renderCard = (item) => {
-  return <ImageCard key={Math.random().toString()} />;
+  return <ImageCard item={item} />;
 };
 
 const { width, height } = Dimensions.get("window");
@@ -18,6 +18,7 @@ const Discover = (props) => {
         data={a}
         numColumns={2}
         columnWrapperStyle={styles.row}
+        keyExtractor={() => Math.random().toString()}
         renderItem={renderCard}
         contentContainerStyle={styles.images}
       />

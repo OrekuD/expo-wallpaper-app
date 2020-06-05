@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Dimensions,
   ImageBackground,
+  StatusBar,
 } from "react-native";
 
 const { width, height } = Dimensions.get("screen");
@@ -13,7 +14,7 @@ const { width, height } = Dimensions.get("screen");
 const IntroScreen = ({ onPress }) => (
   <View style={styles.container}>
     <ImageBackground
-      source={require("../assets/images/intro.jpg")}
+      source={require("../assets/images/intro-2.jpg")}
       style={styles.imageBackground}
       resizeMode="cover"
     />
