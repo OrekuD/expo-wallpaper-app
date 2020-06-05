@@ -1,18 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import ImageCard from "../components/ImageCard";
 
 const a = ["", "", "", "", ""];
 
 const renderCard = (item) => {
-  return <ImageCard />;
+  return <ImageCard key={Math.random().toString()} />;
 };
+
+const { width, height } = Dimensions.get("window");
 
 const Discover = (props) => {
   return (
     <View style={styles.container}>
-      <FlatList data={a} numColumns={2} renderItem={renderCard} />
+      <FlatList
+        data={a}
+        numColumns={2}
+        columnWrapperStyle={styles.row}
+        renderItem={renderCard}
+        contentContainerStyle={styles.images}
+      />
     </View>
   );
 };
@@ -23,6 +31,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  row: {
+    width: width,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+  images: {
+    paddingTop: 15,
   },
 });
 
