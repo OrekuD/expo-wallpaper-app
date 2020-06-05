@@ -1,10 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import ImageCard from "../components/ImageCard";
+
+const a = ["", "", "", "", ""];
+
+const renderCard = (item) => {
+  return <ImageCard />;
+};
 
 const Discover = (props) => {
   return (
     <View style={styles.container}>
-      <Text> Discover </Text>
+      <FlatList data={a} numColumns={2} renderItem={renderCard} />
     </View>
   );
 };

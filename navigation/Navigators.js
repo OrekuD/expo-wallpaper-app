@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Discover from "../screens/Discover";
+import Categories from "../screens/Categories";
 
 const TopTab = createMaterialTopTabNavigator();
 
