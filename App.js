@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import IntroScreen from "./screens/IntroScreen";
 
 export default function App(props) {
-  const [initialLaunch, setInitialLaunch] = useState(true);
+  const [initialLaunch, setInitialLaunch] = useState(false);
 
   const disableIntroScreen = () => {
     setInitialLaunch(false);

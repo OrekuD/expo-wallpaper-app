@@ -70,6 +70,7 @@ function MyTabBar({ state, descriptors, navigation, position }) {
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1, alignItems: "center" }}
+            key={Math.random().toString()}
           >
             <Animated.Text
               style={{

@@ -1,13 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
-const ImageCard = (props) => {
+const ImageCard = ({ item }) => {
   return (
-    <View style={styles.container}>
-      <Text> Image </Text>
-    </View>
+    <TouchableOpacity activeOpacity={0.8} style={styles.container}>
+      <Image
+        source={{ uri: item.webformatURL }}
+        resizeMode="cover"
+        style={{ flex: 1, height: null, width: null, borderRadius: 10 }}
+      />
+    </TouchableOpacity>
   );
 };
 
@@ -15,8 +20,6 @@ const styles = StyleSheet.create({
   container: {
     width: width * 0.45,
     height: 250,
-    borderRadius: 10,
-    backgroundColor: "yellow",
     marginBottom: 15,
   },
 });
