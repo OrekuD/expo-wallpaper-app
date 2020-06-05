@@ -6,7 +6,7 @@ import ImageCard from "../components/ImageCard";
 
 const { width, height } = Dimensions.get("window");
 
-const Pets = (props) => {
+const Pets = ({ navigation }) => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,7 +24,9 @@ const Pets = (props) => {
           numColumns={2}
           columnWrapperStyle={styles.row}
           keyExtractor={() => Math.random().toString()}
-          renderItem={({ item }) => <ImageCard item={item} />}
+          renderItem={({ item }) => (
+            <ImageCard item={item} navigation={navigation} />
+          )}
           contentContainerStyle={styles.images}
           // refreshing={refreshing}
           // onRefresh={refreshImages}

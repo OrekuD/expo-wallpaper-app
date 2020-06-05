@@ -6,12 +6,12 @@ import ImageCard from "../components/ImageCard";
 
 const { width, height } = Dimensions.get("window");
 
-const Art = ({ navigation }) => {
+const Buildings = ({ navigation }) => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    loadImages("Art", setIsLoading, setImages);
+    loadImages("Buildings", setIsLoading, setImages);
   }, []);
 
   return (
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Art;
+export default Buildings;
