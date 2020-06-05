@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
 import AppNavigator from "./navigation/Navigators";
-import Constants from "expo-constants";
 import IntroScreen from "./screens/IntroScreen";
+import { Provider } from "./context/context";
 
 export default function App(props) {
   const [initialLaunch, setInitialLaunch] = useState(false);
@@ -12,23 +12,16 @@ export default function App(props) {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      {initialLaunch ? (
-        <View style={{ flex: 1 }}>
-          <IntroScreen onPress={disableIntroScreen} />
-        </View>
-      ) : (
-        <View style={styles.container}>
-          <AppNavigator />
-        </View>
-      )}
-    </View>
+    <Provider>
+      <View style={styles.container}>
+        <AppNavigator />
+      </View>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight + 20,
   },
 });
