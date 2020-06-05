@@ -4,6 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Discover from "../screens/Discover";
 import Categories from "../screens/Categories";
+import Pets from "../screens/Pets";
+import Art from "../screens/Art";
+import Nature from "../screens/Nature";
 
 import { View, TouchableOpacity } from "react-native";
 import Animated from "react-native-reanimated";
@@ -89,18 +92,22 @@ function MyTabBar({ state, descriptors, navigation, position }) {
 const TopTab = createMaterialTopTabNavigator();
 const TopTabNavigator = () => {
   return (
-    <TopTab.Navigator
-      tabBar={(props) => <MyTabBar {...props} />}
-      //   tabBarOptions={{
-      //     tabStyle: { width: 250 },
-      //     scrollEnabled: true,
-      //     indicatorStyle: { height: 0 },
-      //   }}
-      //   style={{ backgroundColor: "red" }}
-    >
+    <TopTab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
       <TopTab.Screen name="Discover" component={Discover} />
-      <TopTab.Screen name="Categories" component={Categories} />
+      <TopTab.Screen name="Categories" component={StackScreen} />
     </TopTab.Navigator>
+  );
+};
+
+const Stack = createStackNavigator();
+const StackScreen = () => {
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name="Categories" component={Categories} />
+      <Stack.Screen name="Pets" component={Pets} />
+      <Stack.Screen name="Nature" component={Nature} />
+      <Stack.Screen name="Art" component={Art} />
+    </Stack.Navigator>
   );
 };
 

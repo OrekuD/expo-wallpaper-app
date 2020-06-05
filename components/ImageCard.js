@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-const Image = (props) => {
+const ImageCard = (props) => {
   return (
     <View style={styles.container}>
       <Text> Image </Text>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Image;
+export default ImageCard;
