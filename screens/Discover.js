@@ -6,6 +6,7 @@ import {
   FlatList,
   TextInput,
   Keyboard,
+  Text,
 } from "react-native";
 import ImageCard from "../components/ImageCard";
 import LoadingScreen from "../components/LoadingScreen";
@@ -44,6 +45,8 @@ const Discover = ({ navigation }) => {
             value={tag}
             onChangeText={(text) => setTag(text)}
             style={styles.textInput}
+            onSubmitEditing={searchImages}
+            keyboardType="web-search"
           />
           <BorderlessButton onPress={searchImages}>
             <AntDesign name="search1" color="black" size={26} />
@@ -67,6 +70,17 @@ const Discover = ({ navigation }) => {
           contentContainerStyle={styles.images}
           refreshing={refreshing}
           onRefresh={refreshImages}
+          ListEmptyComponent={() => (
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={styles.text}> No photos found </Text>
+            </View>
+          )}
         />
       )}
     </View>
@@ -108,6 +122,10 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "80%",
     fontSize: 18,
+  },
+  text: {
+    fontSize: 22,
+    fontWeight: "bold",
   },
 });
 
