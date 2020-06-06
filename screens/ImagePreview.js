@@ -12,37 +12,19 @@ import {
 import { SharedElement } from "react-navigation-shared-element";
 import { height, width } from "../constants/Layout";
 import { Context } from "../context/context";
-import Animated from "react-native-reanimated";
+import Animated, { Easing } from "react-native-reanimated";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import * as Permissions from "expo-permissions";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 
+import LoadingScreen from "../components/LoadingScreen";
+
 const ImagePreview = (props) => {
   const { toggleSwipe } = useContext(Context);
   const { item } = props.route.params;
 
-  const translateY = new Animated.Value(0);
-  const opacity = translateY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [1, 0],
-  });
-
-  const config = {
-    damping: 15,
-    mass: 1,
-    stiffness: 200,
-    overshootClamping: false,
-    restSpeedThreshold: 0.001,
-    restDisplacementThreshold: 0.001,
-  };
-
-  const Anim = () => {
-    Animated.spring(translateY, {
-      toValue: 0,
-      ...config,
-    }).start();
-  };
+  const opacity = new Animated.Value(0);
 
   const shareImageDetails = async () => {
     try {
@@ -64,6 +46,11 @@ const ImagePreview = (props) => {
   };
 
   const downloadImage = async () => {
+    Animated.timing(opacity, {
+      toValue: 0.5,
+      duration: 300,
+      easing: Easing.linear(Easing.ease),
+    }).start();
     let cameraPermissions = await Permissions.getAsync(Permissions.CAMERA);
     if (cameraPermissions.status !== "granted") {
       cameraPermissions = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -77,33 +64,44 @@ const ImagePreview = (props) => {
           const asset = await MediaLibrary.createAssetAsync(uri);
           MediaLibrary.createAlbumAsync("Wallpapers", asset)
             .then(() => {
-              Alert.alert("Success", "Image has been saved");
-              FileSystem.deleteAsync(uri);
+              Animated.timing(opacity, {
+                toValue: 0,
+                duration: 300,
+                easing: Easing.linear(Easing.ease),
+              }).start(() => {
+                Alert.alert("Success", "Image has been saved");
+              });
             })
             .catch((error) => {});
         })
-        .catch((error) => Alert.alert("Error", "Could not save image"));
+        .catch(() => {
+          Animated.timing(opacity, {
+            toValue: 0,
+            duration: 300,
+            easing: Easing.linear(Easing.ease),
+          }).start(() => {
+            Alert.alert("Error", "Could not save image");
+          });
+        });
     }
   };
 
   useEffect(() => {
     toggleSwipe(0);
-    setTimeout(() => {
-      Anim();
-    }, 500);
 
     return () => {
       toggleSwipe(1);
     };
   }, []);
 
-  // const opacity = translateY.interpolate({
-  //   inputRange: [-100, 0],
-  //   outputRange: [0, 1],
-  // });
-
   return (
     <View style={styles.container}>
+      <Animated.View
+        style={{ ...StyleSheet.absoluteFill, zIndex: 5, opacity }}
+        pointerEvents="none"
+      >
+        <LoadingScreen />
+      </Animated.View>
       <SharedElement
         style={{
           flex: 1,
@@ -119,9 +117,7 @@ const ImagePreview = (props) => {
           resizeMode="cover"
         />
       </SharedElement>
-      <Animated.View
-        style={{ ...styles.buttons, transform: [{ translateY }], opacity }}
-      >
+      <Animated.View style={styles.buttons}>
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.button}
@@ -155,7 +151,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: width > 400 ? 130 : 100,
-    zIndex: 10,
+    zIndex: 4,
   },
   button: {
     width: 60,
