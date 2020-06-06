@@ -28,7 +28,7 @@ const Discover = ({ navigation }) => {
 
   const refreshImages = () => {
     setRefreshing(true);
-    loadImages();
+    loadImages("", setIsLoading, setImages, setRefreshing);
   };
 
   const searchImages = () => {
