@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: "100%",
-    width: "80%",
+    width: "75%",
     fontSize: 18,
   },
   text: {
