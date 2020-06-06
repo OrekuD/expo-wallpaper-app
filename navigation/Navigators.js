@@ -25,7 +25,6 @@ const TopTabNavigator = () => {
   return (
     <TopTab.Navigator
       swipeEnabled={swipeEnabled}
-      // tabBar={(props) => <MyTabBar {...props} />}
       tabBarOptions={{
         indicatorStyle: { height: 0 },
         tabStyle: {
@@ -74,7 +73,7 @@ const MusicSharedStackScreen = () => {
       <MusicSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -96,7 +95,7 @@ const FoodSharedStackScreen = () => {
       <FoodSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -118,7 +117,7 @@ const TravelSharedStackScreen = () => {
       <TravelSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -140,7 +139,7 @@ const BuildingsSharedStackScreen = () => {
       <BuildingsSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -162,7 +161,7 @@ const PetsSharedStackScreen = () => {
       <PetsSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -184,7 +183,7 @@ const NatureSharedStackScreen = () => {
       <NatureSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -206,7 +205,7 @@ const ArtSharedStackScreen = () => {
       <ArtSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
@@ -229,7 +228,7 @@ const DiscoverSharedStackScreen = () => {
       <DiscoverSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
-        sharedElementsConfig={(route, otherRoute, showing) => {
+        sharedElementsConfig={(route) => {
           const { item } = route.params;
           return [`item.${item.id}.photo`];
         }}
