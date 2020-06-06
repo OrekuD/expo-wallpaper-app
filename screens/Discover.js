@@ -12,7 +12,7 @@ import Animated, { Easing } from "react-native-reanimated";
 import ImageCard from "../components/ImageCard";
 import LoadingScreen from "../components/LoadingScreen";
 import { loadImages } from "../constants/Api";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Context } from "../context/context";
 
@@ -75,14 +75,17 @@ const Discover = ({ navigation }) => {
             onChangeText={(text) => setTag(text)}
             style={{ ...styles.textInput, color: colors.text }}
             onSubmitEditing={searchImages}
-            keyboardType="web-search"
           />
           <BorderlessButton onPress={searchImages}>
             <AntDesign name="search1" color={colors.text} size={26} />
           </BorderlessButton>
         </View>
         <BorderlessButton onPress={switchTheme}>
-          <AntDesign name="setting" color={colors.text} size={26} />
+          <MaterialCommunityIcons
+            name="theme-light-dark"
+            color={colors.text}
+            size={26}
+          />
         </BorderlessButton>
       </View>
       {isLoading ? (
