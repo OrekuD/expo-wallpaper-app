@@ -30,8 +30,9 @@ const TopTabNavigator = () => {
           fontSize: 22,
           textTransform: "capitalize",
           fontWeight: "bold",
-          color: colors.text,
         },
+        activeTintColor: colors.text,
+        inactiveTintColor: "gray",
       }}
     >
       <TopTab.Screen name="Discover" component={DiscoverSharedStackScreen} />

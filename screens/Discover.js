@@ -8,6 +8,7 @@ import {
   Keyboard,
   Text,
 } from "react-native";
+import Animated, { Easing } from "react-native-reanimated";
 import ImageCard from "../components/ImageCard";
 import LoadingScreen from "../components/LoadingScreen";
 import { loadImages } from "../constants/Api";
@@ -24,6 +25,8 @@ const Discover = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
+  const opacity = new Animated.Value(1);
+
   useEffect(() => {
     loadImages(tag, setIsLoading, setImages);
   }, []);
@@ -39,8 +42,30 @@ const Discover = ({ navigation }) => {
     loadImages(tag, setIsLoading, setImages);
   };
 
+  const switchTheme = () => {
+    Animated.timing(opacity, {
+      toValue: 0.8,
+      duration: 200,
+      easing: Easing.linear(Easing.ease),
+    }).start();
+    setTimeout(() => {
+      toggleTheme();
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 300,
+        easing: Easing.linear(Easing.ease),
+      }).start();
+    }, 200);
+  };
+
   return (
-    <View style={{ ...styles.container, backgroundColor: colors.background }}>
+    <Animated.View
+      style={{
+        ...styles.container,
+        backgroundColor: colors.background,
+        opacity,
+      }}
+    >
       <View style={styles.header}>
         <View
           style={{ ...styles.textInputContainer, borderColor: colors.text }}
@@ -56,7 +81,7 @@ const Discover = ({ navigation }) => {
             <AntDesign name="search1" color={colors.text} size={26} />
           </BorderlessButton>
         </View>
-        <BorderlessButton onPress={toggleTheme}>
+        <BorderlessButton onPress={switchTheme}>
           <AntDesign name="setting" color={colors.text} size={26} />
         </BorderlessButton>
       </View>
@@ -87,7 +112,7 @@ const Discover = ({ navigation }) => {
           )}
         />
       )}
-    </View>
+    </Animated.View>
   );
 };
 
