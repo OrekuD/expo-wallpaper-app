@@ -3,6 +3,8 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
+import Constants from "expo-constants";
+
 import { Context } from "../context/context";
 
 import Discover from "../screens/Discover";
@@ -12,9 +14,7 @@ import Art from "../screens/Art";
 import Nature from "../screens/Nature";
 import Travel from "../screens/Travel";
 import Food from "../screens/Food";
-
 import ImagePreview from "../screens/ImagePreview";
-import Constants from "expo-constants";
 import Music from "../screens/Music";
 import Buildings from "../screens/Buildings";
 import Settings from "../screens/Settings";
