@@ -9,14 +9,7 @@ import { Context } from "../context/context";
 
 import Discover from "../screens/Discover";
 import Categories from "../screens/Categories";
-import Pets from "../screens/Pets";
-import Art from "../screens/Art";
-import Nature from "../screens/Nature";
-import Travel from "../screens/Travel";
-import Food from "../screens/Food";
 import ImagePreview from "../screens/ImagePreview";
-import Music from "../screens/Music";
-import Buildings from "../screens/Buildings";
 import Settings from "../screens/Settings";
 import Category from "../screens/Category";
 
