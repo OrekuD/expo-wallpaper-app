@@ -45,7 +45,7 @@ const categoriesDetails = [
 ];
 
 const Categories = ({ navigation }) => {
-  const { setCategory } = useContext(Context);
+  const { setCategory, colors } = useContext(Context);
 
   const viewCategory = (name) => {
     setCategory(name);
@@ -53,7 +53,7 @@ const Categories = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: colors.background }}>
       <FlatList
         data={categoriesDetails}
         keyExtractor={() => Math.random().toString()}
@@ -68,7 +68,6 @@ const Categories = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     paddingTop: 20,
     alignItems: "center",
   },

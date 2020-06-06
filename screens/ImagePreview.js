@@ -21,7 +21,7 @@ import * as MediaLibrary from "expo-media-library";
 import LoadingScreen from "../components/LoadingScreen";
 
 const ImagePreview = (props) => {
-  const { toggleSwipe } = useContext(Context);
+  const { toggleSwipe, colors } = useContext(Context);
   const { item } = props.route.params;
 
   const opacity = new Animated.Value(0);
@@ -105,9 +105,8 @@ const ImagePreview = (props) => {
       <SharedElement
         style={{
           flex: 1,
-          paddingHorizontal: 10,
-          paddingTop: 10,
-          backgroundColor: "white",
+          padding: 10,
+          backgroundColor: colors.background,
         }}
         id={`item.${item.id}.photo`}
       >

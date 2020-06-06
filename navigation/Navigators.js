@@ -15,20 +15,22 @@ import Category from "../screens/Category";
 
 const TopTab = createMaterialTopTabNavigator();
 const TopTabNavigator = () => {
-  const { swipeEnabled } = useContext(Context);
+  const { swipeEnabled, colors } = useContext(Context);
   return (
     <TopTab.Navigator
       swipeEnabled={swipeEnabled}
       tabBarOptions={{
         indicatorStyle: { height: 0 },
         tabStyle: {
-          height: Constants.statusBarHeight + 60,
+          height: 60,
           justifyContent: "flex-end",
+          backgroundColor: colors.background,
         },
         labelStyle: {
           fontSize: 22,
           textTransform: "capitalize",
           fontWeight: "bold",
+          color: colors.text,
         },
       }}
     >

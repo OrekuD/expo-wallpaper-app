@@ -11,7 +11,7 @@ const Category = ({ navigation }) => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const { category } = useContext(Context);
+  const { category, colors } = useContext(Context);
 
   useEffect(() => {
     loadImages(category, setIsLoading, setImages);
@@ -23,7 +23,7 @@ const Category = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: colors.background }}>
       {isLoading ? (
         <LoadingScreen />
       ) : (
@@ -47,7 +47,6 @@ const Category = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },

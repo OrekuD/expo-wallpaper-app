@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
 import { RectButton, TouchableOpacity } from "react-native-gesture-handler";
+import { Context } from "../context/context";
 
 const { width, height } = Dimensions.get("window");
 
 const CategoryCard = ({ full, item, onPress }) => {
+  const { colors } = useContext(Context);
   return (
     <View
       style={{
@@ -27,7 +29,7 @@ const CategoryCard = ({ full, item, onPress }) => {
           style={{ flex: 1, height: null, width: null, borderRadius: 10 }}
         />
       </TouchableOpacity>
-      <Text style={styles.text}> {item.name} </Text>
+      <Text style={{ ...styles.text, color: colors.text }}> {item.name} </Text>
     </View>
   );
 };
