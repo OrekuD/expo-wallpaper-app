@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
 import Constants from "expo-constants";
 import CategoryCard from "../components/CategoryCard";
+import { Context } from "../context/context";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -44,8 +45,11 @@ const categoriesDetails = [
 ];
 
 const Categories = ({ navigation }) => {
+  const { setCategory } = useContext(Context);
+
   const viewCategory = (name) => {
-    navigation.navigate(name);
+    setCategory(name);
+    navigation.push("Category");
   };
 
   return (

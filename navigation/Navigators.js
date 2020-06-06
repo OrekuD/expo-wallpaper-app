@@ -18,6 +18,7 @@ import ImagePreview from "../screens/ImagePreview";
 import Music from "../screens/Music";
 import Buildings from "../screens/Buildings";
 import Settings from "../screens/Settings";
+import Category from "../screens/Category";
 
 const TopTab = createMaterialTopTabNavigator();
 const TopTabNavigator = () => {
@@ -49,28 +50,22 @@ const CategoriesStackScreen = () => {
   return (
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="Categories" component={Categories} />
-      <Stack.Screen name="Pets" component={PetsSharedStackScreen} />
-      <Stack.Screen name="Nature" component={NatureSharedStackScreen} />
-      <Stack.Screen name="Art" component={ArtSharedStackScreen} />
-      <Stack.Screen name="Travel" component={TravelSharedStackScreen} />
-      <Stack.Screen name="Music" component={MusicSharedStackScreen} />
-      <Stack.Screen name="Food" component={FoodSharedStackScreen} />
-      <Stack.Screen name="Buildings" component={BuildingsSharedStackScreen} />
+      <Stack.Screen name="Category" component={CategorySharedStackScreen} />
     </Stack.Navigator>
   );
 };
 
-const MusicSharedStack = createSharedElementStackNavigator();
-const MusicSharedStackScreen = () => {
+const CategorySharedStack = createSharedElementStackNavigator();
+const CategorySharedStackScreen = () => {
   return (
-    <MusicSharedStack.Navigator
-      initialRouteName="Music"
+    <CategorySharedStack.Navigator
+      initialRouteName="Category"
       screenOptions={{
         headerShown: false,
       }}
     >
-      <MusicSharedStack.Screen name="Music" component={Music} />
-      <MusicSharedStack.Screen
+      <CategorySharedStack.Screen name="Category" component={Category} />
+      <CategorySharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}
         sharedElementsConfig={(route) => {
@@ -78,139 +73,7 @@ const MusicSharedStackScreen = () => {
           return [`item.${item.id}.photo`];
         }}
       />
-    </MusicSharedStack.Navigator>
-  );
-};
-
-const FoodSharedStack = createSharedElementStackNavigator();
-const FoodSharedStackScreen = () => {
-  return (
-    <FoodSharedStack.Navigator
-      initialRouteName="Food"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <FoodSharedStack.Screen name="Food" component={Food} />
-      <FoodSharedStack.Screen
-        name="ImagePreview"
-        component={ImagePreview}
-        sharedElementsConfig={(route) => {
-          const { item } = route.params;
-          return [`item.${item.id}.photo`];
-        }}
-      />
-    </FoodSharedStack.Navigator>
-  );
-};
-
-const TravelSharedStack = createSharedElementStackNavigator();
-const TravelSharedStackScreen = () => {
-  return (
-    <TravelSharedStack.Navigator
-      initialRouteName="Travel"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <TravelSharedStack.Screen name="Travel" component={Travel} />
-      <TravelSharedStack.Screen
-        name="ImagePreview"
-        component={ImagePreview}
-        sharedElementsConfig={(route) => {
-          const { item } = route.params;
-          return [`item.${item.id}.photo`];
-        }}
-      />
-    </TravelSharedStack.Navigator>
-  );
-};
-
-const BuildingsSharedStack = createSharedElementStackNavigator();
-const BuildingsSharedStackScreen = () => {
-  return (
-    <BuildingsSharedStack.Navigator
-      initialRouteName="Buildings"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <BuildingsSharedStack.Screen name="Buildings" component={Buildings} />
-      <BuildingsSharedStack.Screen
-        name="ImagePreview"
-        component={ImagePreview}
-        sharedElementsConfig={(route) => {
-          const { item } = route.params;
-          return [`item.${item.id}.photo`];
-        }}
-      />
-    </BuildingsSharedStack.Navigator>
-  );
-};
-
-const PetsSharedStack = createSharedElementStackNavigator();
-const PetsSharedStackScreen = () => {
-  return (
-    <PetsSharedStack.Navigator
-      initialRouteName="Pets"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <PetsSharedStack.Screen name="Pets" component={Pets} />
-      <PetsSharedStack.Screen
-        name="ImagePreview"
-        component={ImagePreview}
-        sharedElementsConfig={(route) => {
-          const { item } = route.params;
-          return [`item.${item.id}.photo`];
-        }}
-      />
-    </PetsSharedStack.Navigator>
-  );
-};
-
-const NatureSharedStack = createSharedElementStackNavigator();
-const NatureSharedStackScreen = () => {
-  return (
-    <NatureSharedStack.Navigator
-      initialRouteName="Nature"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <NatureSharedStack.Screen name="Nature" component={Nature} />
-      <NatureSharedStack.Screen
-        name="ImagePreview"
-        component={ImagePreview}
-        sharedElementsConfig={(route) => {
-          const { item } = route.params;
-          return [`item.${item.id}.photo`];
-        }}
-      />
-    </NatureSharedStack.Navigator>
-  );
-};
-
-const ArtSharedStack = createSharedElementStackNavigator();
-const ArtSharedStackScreen = () => {
-  return (
-    <ArtSharedStack.Navigator
-      initialRouteName="Art"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <ArtSharedStack.Screen name="Art" component={Art} />
-      <ArtSharedStack.Screen
-        name="ImagePreview"
-        component={ImagePreview}
-        sharedElementsConfig={(route) => {
-          const { item } = route.params;
-          return [`item.${item.id}.photo`];
-        }}
-      />
-    </ArtSharedStack.Navigator>
+    </CategorySharedStack.Navigator>
   );
 };
 

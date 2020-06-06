@@ -1,12 +1,8 @@
 {
   "expo": {
-    "name": "expo-wallpaper-app",
+    "name": "Wallpapers",
     "slug": "expo-wallpaper-app",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,14 +15,17 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["assets/images/*.jpg"],
     "ios": {
       "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "android": {
+      "package": "com.codedevs.companion",
+      "versionCode": 1
+    },
+    "description": "A wallpaper app"
   }
 }

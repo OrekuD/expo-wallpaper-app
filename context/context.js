@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 export const Context = createContext();
 export const Provider = ({ children }) => {
   const [swipeEnabled, setSwipeEnabled] = useState(true);
+  const [category, setCategory] = useState("");
 
   const toggleSwipe = (id) => {
     switch (id) {
@@ -18,7 +19,9 @@ export const Provider = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ swipeEnabled, toggleSwipe }}>
+    <Context.Provider
+      value={{ swipeEnabled, toggleSwipe, setCategory, category }}
+    >
       {children}
     </Context.Provider>
   );
