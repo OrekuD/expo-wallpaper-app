@@ -17,6 +17,7 @@ import ImagePreview from "../screens/ImagePreview";
 import Constants from "expo-constants";
 import Music from "../screens/Music";
 import Buildings from "../screens/Buildings";
+import Settings from "../screens/Settings";
 
 const TopTab = createMaterialTopTabNavigator();
 const TopTabNavigator = () => {
@@ -39,13 +40,13 @@ const TopTabNavigator = () => {
       }}
     >
       <TopTab.Screen name="Discover" component={DiscoverSharedStackScreen} />
-      <TopTab.Screen name="Categories" component={StackScreen} />
+      <TopTab.Screen name="Categories" component={CategoriesStackScreen} />
     </TopTab.Navigator>
   );
 };
 
 const Stack = createStackNavigator();
-const StackScreen = () => {
+const CategoriesStackScreen = () => {
   return (
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="Categories" component={Categories} />
@@ -224,6 +225,7 @@ const DiscoverSharedStackScreen = () => {
       }}
     >
       <DiscoverSharedStack.Screen name="Discover" component={Discover} />
+      <DiscoverSharedStack.Screen name="Settings" component={Settings} />
       <DiscoverSharedStack.Screen
         name="ImagePreview"
         component={ImagePreview}

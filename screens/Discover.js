@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  FlatList,
+  TextInput,
+  Keyboard,
+} from "react-native";
 import ImageCard from "../components/ImageCard";
-import axios from "axios";
 import LoadingScreen from "../components/LoadingScreen";
-import { PIXABAY_API_KEY, loadImages } from "../constants/Api";
+import { loadImages } from "../constants/Api";
+import { AntDesign } from "@expo/vector-icons";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
+
 const Discover = ({ navigation }) => {
   const [tag, setTag] = useState("");
   const [images, setImages] = useState([]);
@@ -22,8 +30,29 @@ const Discover = ({ navigation }) => {
     loadImages();
   };
 
+  const searchImages = () => {
+    setIsLoading(true);
+    Keyboard.dismiss();
+    loadImages(tag, setIsLoading, setImages);
+  };
+
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <View style={{ ...styles.textInputContainer }}>
+          <TextInput
+            value={tag}
+            onChangeText={(text) => setTag(text)}
+            style={styles.textInput}
+          />
+          <BorderlessButton onPress={searchImages}>
+            <AntDesign name="search1" color="black" size={26} />
+          </BorderlessButton>
+        </View>
+        <BorderlessButton onPress={() => navigation.navigate("Settings")}>
+          <AntDesign name="setting" color="black" size={26} />
+        </BorderlessButton>
+      </View>
       {isLoading ? (
         <LoadingScreen />
       ) : (
@@ -58,6 +87,27 @@ const styles = StyleSheet.create({
   },
   images: {
     paddingTop: 15,
+  },
+  header: {
+    width: width,
+    height: 80,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+  textInputContainer: {
+    height: 45,
+    borderWidth: 1,
+    borderRadius: 25,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
+  },
+  textInput: {
+    height: "100%",
+    width: "80%",
+    fontSize: 18,
   },
 });
 
