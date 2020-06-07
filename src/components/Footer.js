@@ -13,7 +13,9 @@ const Footer = () => (
       <a href="/"> Sitemap </a>
     </div>
     <div className="bottom">
-      <div className="bottom-left"> English </div>
+      <div className="bottom-left">
+        <p> English </p>
+      </div>
       <div className="bottom-middle">
         <Twitter size="25px" color={color} />
         <Github2 size="20px" color={color} />
@@ -21,7 +23,7 @@ const Footer = () => (
         <Dribbble size="20px" color={color} />
       </div>
       <div className="bottom-right">
-        &copy; 2020 flow ui. All rights reserved
+        <p> &copy; 2020 flow ui. All rights reserved </p>
       </div>
     </div>
   </div>

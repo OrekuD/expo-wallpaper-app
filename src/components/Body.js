@@ -1,5 +1,5 @@
 import React from "react";
 
-const Body = () => <div className="body" > body </div>;
+const Body = ({ children }) => <div className="body"> {children} </div>;
 
 export default Body;

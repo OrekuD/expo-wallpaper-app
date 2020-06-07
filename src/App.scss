@@ -2,13 +2,12 @@ $background: #10182f;
 $text: #a2aed2;
 
 .body {
-  height: 20vh;
-  background-color: cornflowerblue;
+  min-height: 100vh;
+  background-color: #f7f8fc;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-transform: uppercase;
-  font-size: 40px;
 }
 
 a {
@@ -59,12 +58,14 @@ a {
 }
 
 .container {
-  min-height: 350px;
+  min-height: 300px;
+  width: 95%;
   background-color: $background;
   color: $text;
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin: 0 auto;
 }
 
 .top {
@@ -97,6 +98,10 @@ a {
   justify-content: space-evenly;
   font-size: 14px;
   padding: 20px 70px;
+
+  p {
+    margin-top: 5px;
+  }
 }
 
 .bottom-left {
