@@ -1,11 +1,19 @@
 import React from "react";
-import { Dribbble, FacebookLetter, Github2, Twitter } from "../svg/Svgs.js";
+import {
+  Dribbble,
+  FacebookLetter,
+  Github2,
+  Twitter,
+  Play,
+} from "../svg/Svgs.js";
 
 const color = "#a2aed2";
 
 const FirstFooter = () => (
   <div className="first-footer-container">
-    <div className="top">flow ui</div>
+    <div className="top">
+      <p> flow ui </p>
+    </div>
     <div className="middle">
       <a href="/"> Terms of Service </a>
       <a href="/"> Privacy Policy </a>
@@ -15,6 +23,7 @@ const FirstFooter = () => (
     <div className="bottom">
       <div className="bottom-left">
         <p> English </p>
+        <Play color={color} size="10px" />
       </div>
       <div className="bottom-middle">
         <Twitter size="25px" color={color} />

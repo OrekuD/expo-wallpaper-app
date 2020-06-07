@@ -7,7 +7,7 @@ $text: #a2aed2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 a {
@@ -58,7 +58,7 @@ a {
 }
 
 .first-footer-container {
-  min-height: 300px;
+  min-height: 250px;
   width: 95%;
   background-color: $background;
   color: $text;
@@ -66,63 +66,177 @@ a {
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-}
 
-.top {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: 600;
-}
+  .top {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 600;
+  }
 
-.middle {
-  flex: 1;
-  width: 40%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-self: center;
-  justify-content: space-between;
-  font-size: 14px;
-  padding-bottom: 40px;
-  color: $text;
-}
+  .middle {
+    flex: 1;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-bottom: 20px;
+    color: $text;
+  }
 
-.bottom {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  font-size: 14px;
-  padding: 20px 70px;
+  .bottom {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    font-size: 14px;
+    padding: 20px 70px;
 
-  p {
-    margin-top: 5px;
+    p {
+      margin-top: 5px;
+    }
+
+    .bottom-left {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .bottom-middle {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 20px;
+    }
+
+    .bottom-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
 
-.bottom-left {
-  flex: 1;
+.second-footer-container {
+  width: 95%;
+  height: 540px;
+  background-color: $background;
+  color: $text;
+  padding: 30px 50px 0px 50px;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
+  flex-direction: column;
 
-.bottom-middle {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 0 20px;
-}
+  hr {
+    width: 100%;
+    border-color: $text;
+  }
 
-.bottom-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+  .section-1 {
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 26px;
+      font-weight: 600;
+    }
+  }
+
+  .section-2 {
+    width: 100%;
+    height: 370px;
+    padding-top: 30px;
+    display: flex;
+
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    a {
+      margin-bottom: 15px;
+    }
+
+    .column-1 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-2 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-3 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-4 {
+      flex: 1.3;
+      display: flex;
+      flex-direction: column;
+      // background-color: red;
+
+      a {
+        margin-left: 50px;
+      }
+
+      p {
+        width: 70%;
+        text-align: left;
+        margin-left: 50px;
+      }
+
+      .social-icons {
+        margin-left: 50px;
+        width: 50%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  .section-3 {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+
+    .middle {
+      width: 40%;
+      display: flex;
+      justify-content: space-between;
+      margin-left: -100px;
+    }
+
+    .right {
+      display: flex;
+      align-items: flex-end;
+
+      svg {
+        margin: 0 0 3px 10px;
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
