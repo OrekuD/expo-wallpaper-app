@@ -1,7 +1,7 @@
 import React from "react";
 import { Dribbble, FacebookLetter, Github2, Twitter } from "../svg/Svgs.js";
 
-const color = "#606a89";
+const color = "#a2aed2";
 
 const Footer = () => (
   <div className="container">
@@ -15,10 +15,10 @@ const Footer = () => (
     <div className="bottom">
       <div className="bottom-left"> English </div>
       <div className="bottom-middle">
-        <Twitter size="30px" color={color} />
-        <Github2 size="25px" color={color} />
-        <FacebookLetter size="24px" color={color} />
-        <Dribbble size="25px" color={color} />
+        <Twitter size="25px" color={color} />
+        <Github2 size="20px" color={color} />
+        <FacebookLetter size="20px" color={color} />
+        <Dribbble size="20px" color={color} />
       </div>
       <div className="bottom-right">
         &copy; 2020 flow ui. All rights reserved
