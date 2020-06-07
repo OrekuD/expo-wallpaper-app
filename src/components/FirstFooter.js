@@ -26,10 +26,18 @@ const FirstFooter = () => (
         <Play color={color} size="10px" />
       </div>
       <div className="bottom-middle">
-        <Twitter size="25px" color={color} />
-        <Github2 size="20px" color={color} />
-        <FacebookLetter size="20px" color={color} />
-        <Dribbble size="20px" color={color} />
+        <a href="/">
+          <Twitter size="25px" color={color} />
+        </a>
+        <a href="/">
+          <Github2 size="20px" color={color} />
+        </a>
+        <a href="/">
+          <FacebookLetter size="20px" color={color} />
+        </a>
+        <a href="/">
+          <Dribbble size="20px" color={color} />
+        </a>
       </div>
       <div className="bottom-right">
         <p> &copy; 2020 flow ui. All rights reserved </p>

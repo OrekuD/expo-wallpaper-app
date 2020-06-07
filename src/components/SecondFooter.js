@@ -43,25 +43,31 @@ const SecondFooter = () => (
       </div>
       <div className="column-4">
         <a href="/" className="title">
-          spcial media
+          social media
         </a>
         <p>
           Follow us on social media to find out the latest updates on our
           progress
         </p>
         <div className="social-icons">
-          <Twitter size="25px" color={color} />
-          <Github2 size="20px" color={color} />
-          <FacebookLetter size="20px" color={color} />
-          <Dribbble size="20px" color={color} />
+          <a href="/">
+            <Twitter size="25px" color={color} />
+          </a>
+          <a href="/">
+            <Github2 size="20px" color={color} />
+          </a>
+          <a href="/">
+            <FacebookLetter size="20px" color={color} />
+          </a>
+          <a href="/">
+            <Dribbble size="20px" color={color} />
+          </a>
         </div>
       </div>
     </div>
     <hr />
     <div className="section-3">
-      <div className="left">
-        <p> &copy; 2020 flow ui. All rights reserved </p>
-      </div>
+      <p> &copy; 2020 flow ui. All rights reserved </p>
       <div className="middle">
         <a href="/"> Terms of Service </a>
         <a href="/"> Privacy Policy </a>
