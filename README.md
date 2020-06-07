@@ -2,7 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Daily app challenge 04
 
-Website footer section. Inspiration is a shot by Ildiko Gasper on dribbble
+Website footer section. Fully responsize.
+Inspiration is a shot by Ildiko Gasper on dribbble
 
 ### Design inspiration
 
