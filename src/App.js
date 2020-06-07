@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.scss";
 import Body from "./components/Body";
-import Footer from "./components/Footer";
+import FirstFooter from "./components/FirstFooter";
+import SecondFooter from "./components/SecondFooter";
 
 function App() {
   return (
-    <div className="App">
-      <Body>
-        <Footer />
-      </Body>
-    </div>
+    <Body>
+      <FirstFooter />
+      <SecondFooter />
+    </Body>
   );
 }
 

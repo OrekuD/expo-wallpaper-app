@@ -3,8 +3,8 @@ import { Dribbble, FacebookLetter, Github2, Twitter } from "../svg/Svgs.js";
 
 const color = "#a2aed2";
 
-const Footer = () => (
-  <div className="container">
+const FirstFooter = () => (
+  <div className="first-footer-container">
     <div className="top">flow ui</div>
     <div className="middle">
       <a href="/"> Terms of Service </a>
@@ -29,4 +29,4 @@ const Footer = () => (
   </div>
 );
 
-export default Footer;
+export default FirstFooter;
