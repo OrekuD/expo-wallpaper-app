@@ -9,8 +9,11 @@ export const loadImages = (
   setRefreshing,
   page
 ) => {
+  let temp = tag;
+  temp = temp.split(" ").join("+");
+
   Axios.get(
-    `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${tag}&image_type=photo&per_page=35&page=${
+    `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${temp}&image_type=photo&per_page=35&page=${
       page ? page : 1
     }`
   )

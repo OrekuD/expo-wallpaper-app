@@ -12,8 +12,8 @@ import Animated, { Easing } from "react-native-reanimated";
 import ImageCard from "../components/ImageCard";
 import LoadingScreen from "../components/LoadingScreen";
 import { loadImages } from "../constants/Api";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import { BorderlessButton } from "react-native-gesture-handler";
+import { AntDesign, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { Context } from "../context/context";
 
 const { width, height } = Dimensions.get("window");
@@ -34,7 +34,8 @@ const Discover = ({ navigation }) => {
 
   const refreshImages = () => {
     setRefreshing(true);
-    if (pageIndex >= 10) {
+    setTag("");
+    if (pageIndex >= 20) {
       setPageIndex(1);
     } else {
       setPageIndex(pageIndex + 1);
@@ -117,6 +118,9 @@ const Discover = ({ navigation }) => {
               }}
             >
               <Text style={styles.text}> No photos found </Text>
+              <RectButton onPress={refreshImages} style={styles.button}>
+                <Feather name="refresh-cw" color={colors.text} size={30} />
+              </RectButton>
             </View>
           )}
         />
@@ -163,6 +167,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 22,
     fontWeight: "bold",
+  },
+  button: {
+    marginTop: 100,
   },
 });
 
