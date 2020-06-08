@@ -24,6 +24,7 @@ const Discover = ({ navigation }) => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [pageIndex, setPageIndex] = useState(1);
 
   const opacity = new Animated.Value(1);
 
@@ -33,7 +34,12 @@ const Discover = ({ navigation }) => {
 
   const refreshImages = () => {
     setRefreshing(true);
-    loadImages("", setIsLoading, setImages, setRefreshing);
+    if (pageIndex >= 10) {
+      setPageIndex(1);
+    } else {
+      setPageIndex(pageIndex + 1);
+    }
+    loadImages("", setIsLoading, setImages, setRefreshing, pageIndex);
   };
 
   const searchImages = () => {

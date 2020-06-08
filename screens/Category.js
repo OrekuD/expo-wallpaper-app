@@ -12,6 +12,7 @@ const Category = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const { category, colors } = useContext(Context);
+  const [pageIndex, setPageIndex] = useState(1);
 
   useEffect(() => {
     loadImages(category, setIsLoading, setImages);
@@ -19,7 +20,12 @@ const Category = ({ navigation }) => {
 
   const refreshImages = () => {
     setRefreshing(true);
-    loadImages(category, setIsLoading, setImages, setRefreshing);
+    if (pageIndex >= 10) {
+      setPageIndex(1);
+    } else {
+      setPageIndex(pageIndex + 1);
+    }
+    loadImages(category, setIsLoading, setImages, setRefreshing, pageIndex);
   };
 
   return (
