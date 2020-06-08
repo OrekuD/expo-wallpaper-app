@@ -9,7 +9,7 @@ Inspiration is a shot by [Ildiko Gaspar](https://dribbble.com/ildiesign) on drib
 
 ![Insipration](https://cdn.dribbble.com/users/883236/screenshots/9783666/media/26e7a68fb82a3d4cb1e5d1adf5836eb5.png)
 
-### Screenshot
+### Final app screenshot
 
 ![App screenshot](https://github.com/OrekuD/daily-challenge-04/blob/master/src/screenshot/screenshot.png?raw=true)
 
