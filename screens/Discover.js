@@ -11,7 +11,7 @@ import {
 import Animated, { Easing } from "react-native-reanimated";
 import ImageCard from "../components/ImageCard";
 import LoadingScreen from "../components/LoadingScreen";
-import { loadImages } from "../constants/Api";
+import { loadImages } from "../util/Api";
 import { AntDesign, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { Context } from "../context/context";

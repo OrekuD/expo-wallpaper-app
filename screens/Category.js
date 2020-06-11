@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
-import { loadImages } from "../constants/Api";
+import { loadImages } from "../util/Api";
 import LoadingScreen from "../components/LoadingScreen";
 import ImageCard from "../components/ImageCard";
 import { Context } from "../context/context";
